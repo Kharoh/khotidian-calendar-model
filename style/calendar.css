@@ -1,0 +1,60 @@
+:root {
+  --calendar-width: min(350px, 80vw);
+}
+
+.calendar {
+  min-height: 500px;
+  width: var(--calendar-width);
+  padding: calc(var(--calendar-width) * 0.03);
+
+  border: dashed #2E2E2E 1px;
+  border-radius: .35vw;
+  box-shadow: 0 4px 12px 0px rgba(0, 0, 0, 0.15);
+
+  display: grid;
+  grid-template-columns: repeat(7, calc(var(--calendar-width) * 0.126));
+  grid-template-rows: calc(var(--calendar-width) * 0.05);
+  grid-auto-rows: calc(var(--calendar-width) * 0.126);
+  grid-gap: calc(var(--calendar-width) * 0.02);
+}
+
+.calendar .day {
+  transition: box-shadow .35s, transform .15s;
+
+  border-radius: .15vw;
+  background-color: #c7c7c7;
+}
+
+.calendar .day:hover {
+  transition: box-shadow .1s, transform .15s;
+
+  transform: translateY(calc(var(--calendar-width) * -0.01));
+
+  box-shadow: inset 1px 1px calc(var(--calendar-width) * 0.03) 0 rgba(0, 0, 0, 0.25),
+              1px 1px 4px 0 rgba(0, 0, 0, 0.25), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.calendar .day.habit-completed {
+  background-color: #f3abfd;
+  cursor: pointer;
+}
+
+.calendar h2 {
+  margin: 0;
+  margin-top: calc(var(--calendar-width) * -0.01);
+
+  text-align: center;
+  font-size: calc(var(--calendar-width) * 0.05);
+  font-weight: 400;
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.dim {
+  grid-column: 7;
+}
+.mer {
+  grid-column: 4;
+}
+.sam {
+  grid-column: 1;
+}
